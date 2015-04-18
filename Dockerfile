@@ -1,7 +1,7 @@
 # app server, base ubuntu
-# include sshd, java, node.js, supervisord
+# include sshd, java, mysql, supervisord
 
-FROM ubuntu:14.04
+FROM ubuntu:14.10
 MAINTAINER yinheli <me@yinheli.com>
 
 ## install wget tar git sshd mysql ...
@@ -49,8 +49,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # set env
 ENV PATH $PATH:\$JAVA_HOME/bin
-
-EXPOSE 22
 
 
 CMD ["/usr/bin/supervisord"]
