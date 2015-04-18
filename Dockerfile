@@ -28,7 +28,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 ### install java ###
 
 # download && install java
-RUN wget --progress=bar --no-check-certificate \
+RUN wget --no-check-certificate \
     -O /tmp/jdk.tar.gz \
     --header "Cookie: oraclelicense=a" \
     http://download.oracle.com/otn-pub/java/jdk/7u72-b14/server-jre-7u72-linux-x64.tar.gz && \
@@ -36,9 +36,7 @@ RUN wget --progress=bar --no-check-certificate \
     mkdir -p /usr/local/jdk && \
     mv jdk1.7.0_72/* /usr/local/jdk/ && \
     rm -rf jdk1.7.0_72 && rm -f /tmp/jdk.tar.gz && \
-    chown root:root -R /usr/local/jdk && \
-    update-alternatives --install /usr/bin/java java /usr/local/jdk/bin/java 1 && \
-    update-alternatives --set java /usr/local/jdk/bin/java
+    chown root:root -R /usr/local/jdk
 
 ENV JAVA_HOME /usr/local/jdk
 
