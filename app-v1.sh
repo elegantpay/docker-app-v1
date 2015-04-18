@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-init_lock_file="~/.init_lock"
+init_lock_file="/.init_lock"
 
 if [ ! -f "$init_lock_file" ]; then
     SSHD_PORT=${SSHD_PORT:-22}

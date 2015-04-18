@@ -50,7 +50,7 @@ RUN chmod +x /usr/bin/app-v1.sh
 ### other ###
 
 # set env
-ENV PATH $PATH:\$JAVA_HOME/bin
+ENV PATH $PATH:$JAVA_HOME/bin
 
 
 CMD ["/usr/bin/app-v1.sh"]
