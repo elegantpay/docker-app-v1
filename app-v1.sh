@@ -10,7 +10,7 @@ if [ ! -f "$init_lock_file" ]; then
     sed -ri "s/Port\s+22/Port $SSHD_PORT/g" /etc/ssh/sshd_config
     sed -ri "s/MYSQL_PORT/$MYSQL_PORT/g" /etc/mysql/my.cnf
     
-    touch $init_lock_file
+    echo 'init_lock' > $init_lock_file
 
 fi
 
