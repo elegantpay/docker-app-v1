@@ -43,6 +43,10 @@ RUN wget --progress=bar --no-check-certificate \
 ENV JAVA_HOME /usr/local/jdk
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY app-v1.sh /usr/bin/app-v1.sh
+COPY my.cnf /etc/mysql/my.cnf
+
+RUN chmod +x /usr/bin/app-v1.sh
 
 
 ### other ###
@@ -51,4 +55,4 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ENV PATH $PATH:\$JAVA_HOME/bin
 
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/app-v1.sh"]
