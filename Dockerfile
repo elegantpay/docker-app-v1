@@ -7,7 +7,7 @@ MAINTAINER yinheli <me@yinheli.com>
 ## install wget tar git sshd mysql ...
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
     apt-get update && apt-get install -y \
-    curl vim iptables ufw telnet wget tar unzip make gcc git \
+    curl vim iptables ufw telnet wget tar unzip make gcc libaio1 git \
     openssh-server supervisor nginx && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
