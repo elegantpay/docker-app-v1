@@ -8,11 +8,9 @@ MAINTAINER yinheli <me@yinheli.com>
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
     apt-get update && apt-get install -y \
     curl vim iptables ufw telnet wget tar unzip make gcc git \
-    mysql-server \
     openssh-server supervisor nginx && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    rm -rf /var/lib/mysql/mysql
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
@@ -41,7 +39,6 @@ ENV JAVA_HOME /usr/local/jdk
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY app-v1.sh /usr/bin/app-v1.sh
-COPY my.cnf /etc/mysql/my.cnf
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN chmod +x /usr/bin/app-v1.sh
