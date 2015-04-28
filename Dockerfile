@@ -1,7 +1,7 @@
 # app server, base ubuntu
 # include sshd, java, nginx, mysql, supervisord
 
-FROM ubuntu:14.10
+FROM ubuntu:15.04
 MAINTAINER yinheli <me@yinheli.com>
 
 ## install wget tar git sshd mysql ...
